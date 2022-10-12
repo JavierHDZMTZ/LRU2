@@ -10,7 +10,7 @@ public class Algoritmo_LRU2 {
     private void Rellenar_FilasYColumnas(){
     
     }
-    
+    //se ve? ·isai
     private void Fallo_de_Pagina(){
     
     }
