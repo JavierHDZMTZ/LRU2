@@ -2,6 +2,7 @@ package lru2;
 public class Algoritmo_LRU2 {
     private int Matriz[][];
     private int Tabla [][];
+    private int contador;
     
     private void Rellenar_Matriz(){
     
