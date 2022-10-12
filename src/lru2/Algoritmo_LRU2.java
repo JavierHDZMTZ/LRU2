@@ -1,3 +1,4 @@
+//holaaaa niños
 package lru2;
 public class Algoritmo_LRU2 {
     private int Matriz[][];
