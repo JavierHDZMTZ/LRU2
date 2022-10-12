@@ -3,7 +3,7 @@ public class Algoritmo_LRU2 {
     private int Matriz[][];
     private int Tabla [][];
     private int contador, Fila, Columna;
-    
+    //hola mundo que tal
     private void Rellenar_Matriz(){
     
     }
