@@ -3,33 +3,32 @@ package lru2;
 import java.util.Scanner;
 
 public class Generador_de_Instrucciones extends Memoria{
-    private int random= 32000; //recibe el espacio de direccionamiento de la clase memoria
+  
+    
     private int min=0;
     private int max=0;
+    private int ed=0;
     private Traductor m = new Traductor();
     
     
-    
-    public void esDirec(){
-        int ram=16, mv=32,n,tp=4,k=2^10, pag,mpag,ed;
+    public void proceso(){
+        int ram=16, mv=32,n,tp=4,k=2^10, pag,mpag;
+        int bitpag, bitmar;
         
         ed= mv*k; //espacio de direcciones
         pag= ed/(ram*k); //total  de pag
         mpag= (ram*k)/tp; //marcos de pagina
+        
+        String p = m.dec_bin(pag-1); 
+        String mp = m.dec_bin(mpag-1); 
+        
+        bitpag= p.length(); //bits para las pag
+        bitmar= mp.length(); //bits para los marcos de pag   
     }
     
-    public void bitMarco(){
-        
-        
-    }
-    
-    public void bitPag(){
-        
-        
-    }
     public void manual(){
-       String r = m.dec_bin(random);
-       System.out.println("Binario de"+random+"es"+r);  
+       String r = m.dec_bin(ed);
+       System.out.println("Binario de"+ed+"es"+r);  
     }
     
     
