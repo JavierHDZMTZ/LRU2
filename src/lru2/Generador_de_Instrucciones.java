@@ -8,13 +8,32 @@ public class Generador_de_Instrucciones extends Memoria{
     private int max=0;
     private Traductor m = new Traductor();
     
+    
+    
+    public void esDirec(){
+        int ram=16, mv=32,n,tp=4,k=2^10, pag,mpag,ed;
+        
+        ed= mv*k; //espacio de direcciones
+        pag= ed/(ram*k); //total  de pag
+        mpag= (ram*k)/tp; //marcos de pagina
+    }
+    
+    public void bitMarco(){
+        
+        
+    }
+    
+    public void bitPag(){
+        
+        
+    }
     public void manual(){
        String r = m.dec_bin(random);
        System.out.println("Binario de"+random+"es"+r);  
     }
     
     
-    public int  aleatorio(){
+    public String aleatorio(){
         Scanner sn =new Scanner(System.in);
         System.out.println("El maximo:");  
         this.max=32768; //32k -- espacio de direcionamiento 
@@ -23,6 +42,6 @@ public class Generador_de_Instrucciones extends Memoria{
         System.out.println("El rango es: ("+max+","+min+")"); 
         String l = m.dec_bin(max); //manda el binario a la clase MMU para su demas proceso
         System.out.println("Binario de"+max+"es"+l);  
-        return 0;
+        return l;
     }
 }
