@@ -26,9 +26,10 @@ public class Generador_de_Instrucciones extends Memoria{
         bitmar= mp.length(); //bits para los marcos de pag   
     }
     
-    public void manual(){
+    public String manual(){
        String r = m.dec_bin(ed);
        System.out.println("Binario de"+ed+"es"+r);  
+       return r;
     }
     
     
