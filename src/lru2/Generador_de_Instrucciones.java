@@ -34,9 +34,10 @@ public class Generador_de_Instrucciones extends Memoria{
     
     
     public String aleatorio(){
+        int numero = (int)(Math.random()*32000);
         Scanner sn =new Scanner(System.in);
         System.out.println("El maximo:");  
-        this.max=32768; //32k -- espacio de direcionamiento 
+        this.max=numero; //32k -- espacio de direcionamiento 
         this.max=max-1;
         System.out.println("el minimo es: "+min);  
         System.out.println("El rango es: ("+max+","+min+")"); 
