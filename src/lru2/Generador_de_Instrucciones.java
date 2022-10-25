@@ -26,15 +26,15 @@ public class Generador_de_Instrucciones extends Memoria{
         bitmar= mp.length(); //bits para los marcos de pag   
     }
     
-    public String manual(){
-       String r = m.dec_bin(ed);
-       System.out.println("Binario de"+ed+"es"+r);  
+    public String manual(int man){
+       String r = m.dec_bin(man);
+       System.out.println("Binario de"+man+"es"+r);  
        return r;
     }
     
     
     public String aleatorio(){
-        int numero = (int)(Math.random()*32000);
+        int numero = (int)(Math.random()*ed);
         Scanner sn =new Scanner(System.in);
         System.out.println("El maximo:");  
         this.max=numero; //32k -- espacio de direcionamiento 
