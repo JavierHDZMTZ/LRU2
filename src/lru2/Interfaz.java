@@ -358,12 +358,12 @@ public class Interfaz extends javax.swing.JFrame {
        jTextArea1.setEnabled(true);
        jButton5.setVisible(true);
        jButton6.setVisible(true);
-       /*Ejecucion.Inicializado(NpagV, NInstrucciones);
+       Ejecucion.Inicializado(NpagV, NInstrucciones);
        Ejecucion.TablaDeInstrucciones = TablaDeInstrucciones;
        for(int i=0; i<NInstrucciones; i++){
             Ejecucion.Ejecucion(TablaDeInstrucciones[i]);
        }
-       Ejecucion.CalculoDeValores();*/
+       Ejecucion.CalculoDeValores();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
