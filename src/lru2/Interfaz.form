@@ -198,12 +198,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="No. de Bits (p&#xe1;g)"/>
+            <Property name="text" type="java.lang.String" value=" Bits (p&#xe1;g)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="No. de Bits (Marcos de pag)"/>
+            <Property name="text" type="java.lang.String" value="Bits (Marcos de pag)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField4">

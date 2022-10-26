@@ -103,9 +103,9 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel6.setText("Espacio de Direccionamiento");
 
-        jLabel7.setText("No. de Bits (pág)");
+        jLabel7.setText(" Bits (pág)");
 
-        jLabel8.setText("No. de Bits (Marcos de pag)");
+        jLabel8.setText("Bits (Marcos de pag)");
 
         jTextField4.setEditable(false);
         jTextField4.setBackground(new java.awt.Color(133, 193, 233));
@@ -601,7 +601,11 @@ public class Interfaz extends javax.swing.JFrame {
         System.out.print(RAM);
         System.out.print(VRAM);
         System.out.print(Tpag);
-        
+        jTextField4.setText(String.valueOf(GEN.mpag));
+        jTextField5.setText(String.valueOf(GEN.pag));
+        jTextField8.setText("0 - "+String.valueOf(GEN.ed - 1));
+        jTextField7.setText(GEN.p);
+        jTextField6.setText(GEN.mp);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
