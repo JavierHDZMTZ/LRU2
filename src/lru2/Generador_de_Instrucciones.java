@@ -4,12 +4,10 @@ import java.util.Scanner;
 
 public class Generador_de_Instrucciones extends Memoria{
   
-    
     private int min=0;
     private int max=0;
     private int ed=0;
     private Traductor m = new Traductor();
-    
     
     public void proceso(){
         int ram=16, mv=32,n,tp=4,k=2^10, pag,mpag;
