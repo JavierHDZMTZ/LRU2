@@ -6,16 +6,25 @@ public class Generador_de_Instrucciones extends Memoria{
   
     private int min=0;
     private int max=0;
-    private int ed=0;
+    public int ed=0, pag=0, mpag=0;
     private Traductor m = new Traductor();
     
-    public void proceso(){
-        int ram=16, mv=32,n,tp=4,k=2^10, pag,mpag;
+    
+    public void proceso(int ram, int mv, int tp, int cb1, int cb2, int cb3){
+        int n,k=2^10, k1=1, k2=1, k3=1;
         int bitpag, bitmar;
-        
-        ed= mv*k; //espacio de direcciones
-        pag= ed/(ram*k); //total  de pag
-        mpag= (ram*k)/tp; //marcos de pagina
+        for(int i=0; i<cb1 ; i++){
+           k1= k1*k;
+        }
+        for(int i=0; i<cb2 ; i++){
+           k2= k2*k;
+        }
+        for(int i=0; i<cb3 ; i++){
+           k3= k3*k;
+        }
+        ed= mv*k3; //espacio de direcciones
+        pag= ed/(ram*k1); //total  de pag
+        mpag= (ram*k2)/tp; //marcos de pagina
         
         String p = m.dec_bin(pag-1); 
         String mp = m.dec_bin(mpag-1); 

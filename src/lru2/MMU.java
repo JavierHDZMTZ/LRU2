@@ -9,7 +9,7 @@ public class MMU {
          int i;
         String num = a.aleatorio();
         int dec = b.bin_dec(num);   
-        int tamp = c.Paginas();
+        int tamp = c.paginas;
         int mod = dec % tamp ;
         String bin = b.dec_bin(mod);
         
@@ -31,7 +31,7 @@ public String[] tabla_man(){
         int i;
         String num = a.manual(1);
         int dec = b.bin_dec(num);
-        int tamp = c.Paginas();
+        int tamp = c.paginas;
         int mod = dec % tamp ;
         String bin = b.dec_bin(mod);
         
@@ -49,6 +49,5 @@ public String[] tabla_man(){
             tabla[i]=F;
         }
         return tabla;
-
-     }
+}
 }
