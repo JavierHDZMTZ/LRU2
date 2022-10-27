@@ -1,8 +1,13 @@
 package lru2;
+
+import java.util.Arrays;
+
 public class Interfaz extends javax.swing.JFrame {
     private int VRAM=0,RAM=0,Tpag=0;
     private int NpagV,NInstrucciones;
     private int TablaDeInstrucciones[];
+    private int TablaDeEjecucion[];
+    private Generador_de_Instrucciones GEN = new Generador_de_Instrucciones();
     Algoritmo_LRU2 Ejecucion = new Algoritmo_LRU2();
     MMU MMu = new MMU();
     public Interfaz() {
@@ -581,7 +586,6 @@ public class Interfaz extends javax.swing.JFrame {
                 }
             }
         }
-        Generador_de_Instrucciones GEN = new Generador_de_Instrucciones();
         GEN.proceso(RAM, VRAM, Tpag, mult1, mult2, mult3);
         jPanel2.setVisible(true);
         jLabel9.setVisible(true);
@@ -621,8 +625,10 @@ public class Interfaz extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jButton4.setEnabled(true);
         jButton4.setVisible(true);
-        Generador_de_Instrucciones l = new Generador_de_Instrucciones();
-        l.aleatorio();
+        TablaDeInstrucciones = GEN.aleatorio();
+        System.out.print(Arrays.toString(TablaDeInstrucciones));
+        TablaDeEjecucion = MMu.tabla_ale(TablaDeInstrucciones, TablaDeInstrucciones.length, GEN.tpg);
+        System.out.print(Arrays.toString(TablaDeEjecucion));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

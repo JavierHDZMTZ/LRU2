@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Generador_de_Instrucciones extends Memoria{
   
     private int min=0, max=0;
-    public int ed=0, pag=0, mpag=0;
+    public int ed=0, pag=0, mpag=0, tpg;
     public String p, mp;
     private Traductor m = new Traductor();
     
@@ -23,6 +23,7 @@ public class Generador_de_Instrucciones extends Memoria{
            k3= k3*k;
         }
         tp = tp*k3;
+        tpg=tp;
         ed= mv*k2; //espacio de direcciones
         pag= ed/tp; //total  de pag
         mpag= (ram*k2)/tp; //marcos de pagina
@@ -41,16 +42,12 @@ public class Generador_de_Instrucciones extends Memoria{
     }
     
     
-    public String aleatorio(){
+    public int[] aleatorio(){
         int TablaDir[] = new int [mpag];
         for(int i =0; i<mpag ; i++){
             TablaDir[i]= (int)(Math.random()*ed);
-        }  
-        this.max=ed; //32k -- espacio de direcionamiento 
-        this.max=max-1; 
-        String l = m.dec_bin(max); //manda el binario a la clase MMU para su demas proceso
-        System.out.println("Binario de"+max+"es"+l);  
-        
-        return l;
+            System.out.print(TablaDir[i]);
+        }    
+        return TablaDir;
     }
 }
