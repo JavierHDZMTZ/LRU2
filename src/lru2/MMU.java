@@ -16,9 +16,9 @@ public class MMU {
         return tabla;
     }
 
-public String[] tabla_man(){
+public String[] tabla_man(int man){
         int i;
-        String num = a.manual(1);
+        String num = b.dec_bin(man);
         int dec = b.bin_dec(num);
         int tamp = c.paginas;
         int mod = dec % tamp ;
