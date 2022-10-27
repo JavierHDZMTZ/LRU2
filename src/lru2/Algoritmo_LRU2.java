@@ -1,5 +1,4 @@
 package lru2;
-import java.util.Arrays;
 public class Algoritmo_LRU2 {
     private long Matriz[][];
     public int TablaDeInstrucciones [], Ninstrucciones, NPagVr;
@@ -65,7 +64,7 @@ public class Algoritmo_LRU2 {
         }
         return valor;
     }
-    private void Fallo_de_Pagina(int PaginaNueva){
+    public void Fallo_de_Pagina(int PaginaNueva){
         CalculoDeValores();
         int LRU = ValorDeFila[0][1];
         int PAR = ValorDeFila[0][0];
