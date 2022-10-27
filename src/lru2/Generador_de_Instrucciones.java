@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Generador_de_Instrucciones extends Memoria{
   
-    private int min=0;
-    private int max=0;
+    private int min=0, max=0;
     public int ed=0, pag=0, mpag=0;
     public String p, mp;
     private Traductor m = new Traductor();
@@ -43,15 +42,15 @@ public class Generador_de_Instrucciones extends Memoria{
     
     
     public String aleatorio(){
-        int numero = (int)(Math.random()*ed);
-        Scanner sn =new Scanner(System.in);
-        System.out.println("El maximo:");  
-        this.max=numero; //32k -- espacio de direcionamiento 
-        this.max=max-1;
-        System.out.println("el minimo es: "+min);  
-        System.out.println("El rango es: ("+max+","+min+")"); 
+        int TablaDir[] = new int [mpag];
+        for(int i =0; i<mpag ; i++){
+            TablaDir[i]= (int)(Math.random()*ed);
+        }  
+        this.max=ed; //32k -- espacio de direcionamiento 
+        this.max=max-1; 
         String l = m.dec_bin(max); //manda el binario a la clase MMU para su demas proceso
         System.out.println("Binario de"+max+"es"+l);  
+        
         return l;
     }
 }

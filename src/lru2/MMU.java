@@ -5,8 +5,14 @@ public class MMU {
     Memoria c = new Memoria();
             public String F =" ";
 
-    public String[] tabla_ale(){
-         int i;
+    public int[] tabla_ale(int instrucciones[], int tamaño, int TP){
+        int i;
+        int tabla[]= new int[tamaño];
+        // Generado de tabla para ejecucion
+        for(int k = 0 ; k < tamaño ; k++ ){
+            tabla[k]=(instrucciones[k]/TP); 
+        }
+        //fin de llenado de tabla
         String num = a.aleatorio();
         int dec = b.bin_dec(num);   
         int tamp = c.paginas;
@@ -19,11 +25,11 @@ public class MMU {
          String F =" ";
          F = F + four[i];
         }
-        
+        /*
         String[] tabla = new String[tamp];
          for( i =0;i<=10;i++){
             tabla[i]=F;
-        }
+        }*/
         return tabla;
     }
 

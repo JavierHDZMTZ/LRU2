@@ -4,6 +4,7 @@ public class Interfaz extends javax.swing.JFrame {
     private int NpagV,NInstrucciones;
     private int TablaDeInstrucciones[];
     Algoritmo_LRU2 Ejecucion = new Algoritmo_LRU2();
+    MMU MMu = new MMU();
     public Interfaz() {
        initComponents();
        jPanel2.setVisible(false);
