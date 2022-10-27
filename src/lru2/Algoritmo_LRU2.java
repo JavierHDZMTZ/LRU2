@@ -10,14 +10,12 @@ public class Algoritmo_LRU2 {
        Matriz = new long[NPagV][NPagV];
        Rellenar_Matriz(NPagV);
        TablaDeInstrucciones = new int[Nins];
-       ValorDeFila= new int[Nins][2];
+       ValorDeFila= new int[NPagVr][2];
     }
     private void Rellenar_Matriz(int NPagV){
         for(int i=0 ; i<NPagV; i++){
-            System.out.println("");
             for(int j=0 ; j<NPagV ; j++){
                 Matriz[i][j]=0;
-                System.out.print(Matriz[i][j]);
             }
         }
     }
@@ -27,13 +25,6 @@ public class Algoritmo_LRU2 {
         }
         for(int i=0 ; i<NPagVr; i++){
             Matriz[NPagV][i]= 0;
-        }
-        
-        for(int j=0 ; j<NPagVr ; j++){
-            System.out.println("");
-            for(int i =0 ; i<NPagV ; i++){
-            System.out.print(Matriz[i][j]);
-            }
         }
     }
     public void CalculoDeValores(){
@@ -76,18 +67,19 @@ public class Algoritmo_LRU2 {
                 }
             }
         }
+        System.out.println("Pagina a reemplazar: "+PAR);
         TablaDeInstrucciones[PAR]=PaginaNueva;
         Ejecucion(TablaDeInstrucciones[PAR]);
     }
     public void Ejecucion(int NPagVirtual){
         Rellenar_FilasYColumnas(NPagVirtual);
-         System.out.println("");
-        for(int j=0 ; j<NPagVr ; j++){
+        for(int i= 0 ; i < NPagVr; i++){
             System.out.println("");
-            for(int i =0 ; i<NPagVr ; i++){
-            System.out.print(Matriz[i][j]);
+            for(int j= 0 ; j< NPagVr;j ++){
+                    System.out.print("["+Matriz[j][i]+"]");
+                }
             }
+        System.out.println("");
         }
+        
     }
-    
-}

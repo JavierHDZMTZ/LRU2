@@ -358,7 +358,6 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField10.setText("jTextField10");
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField10ActionPerformed(evt);
@@ -519,7 +518,12 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+     int X=0;
+     X = Integer.parseInt(jTextField10.getText()); 
+     System.out.println("Instruccion a insertar en el fallo de pagina:");
+     System.out.println("["+X+"]");
+     Ejecucion.Fallo_de_Pagina(X);
+     System.out.println("");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -527,12 +531,19 @@ public class Interfaz extends javax.swing.JFrame {
         jButton5.setVisible(true);
         jButton6.setVisible(true);
         jTextField9.setVisible(false);
-        System.out.print(GEN.pag+"    "+ GEN.mpag+"    ");
         Ejecucion.Inicializado(GEN.pag, GEN.mpag);
+        System.out.println("Paginas cargadas para su ejecucion: ");
+        for(int j=0 ; j<TEX.length ; j++){
+            System.out.print("["+TEX[j]+"]");
+        }
+        System.out.println("");
         for(int i=0; i<TEX.length; i++){
             Ejecucion.Ejecucion(TEX[i]);
         }
         Ejecucion.CalculoDeValores();
+        
+        jTextField10.setVisible(true);
+        System.out.println("");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
@@ -615,6 +626,13 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField8.setText("0 - "+String.valueOf(GEN.ed - 1));
         jTextField7.setText(GEN.p);
         jTextField6.setText(GEN.mp);
+        jTextField1.setEnabled(false);
+        jTextField2.setEnabled(false);
+        jTextField3.setEnabled(false);
+        jComboBox3.setEnabled(false);
+        jComboBox4.setEnabled(false);
+        jComboBox5.setEnabled(false);
+        jButton1.setEnabled(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -644,7 +662,6 @@ public class Interfaz extends javax.swing.JFrame {
         Integer man = Integer.parseInt(jTextField9.getText());
         TManual = GEN.manual(TManual, man , cont);
         cont++;
-        System.out.println(Arrays.toString(TManual));
         jTextField9.setText("");
         if(cont>= GEN.mpag){
             jButton4.setEnabled(true);
