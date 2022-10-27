@@ -1,11 +1,8 @@
 package lru2;
-
-import java.util.Scanner;
-
 public class Generador_de_Instrucciones extends Memoria{
   
     private int min=0, max=0;
-    public int ed=0, pag=0, mpag=0, tpg;
+    public int ed=0, pag=0, mpag=0, tpg ;
     public String p, mp;
     private Traductor m = new Traductor();
     
@@ -35,10 +32,16 @@ public class Generador_de_Instrucciones extends Memoria{
         bitmar= mp.length(); //bits para los marcos de pag   
     }
     
-    public String manual(int man){
-       String r = m.dec_bin(man);
-       System.out.println("Binario de"+man+"es"+r);  
-       return r;
+    public int[] manual(int TablaDir[], int man, int i){
+       int TablaX[];
+       TablaX=TablaDir;
+       if(i>=mpag){
+        System.out.println("Tabla llena");
+       }
+       else{
+        TablaX[i]=man;
+       }
+       return TablaX;
     }
     
     

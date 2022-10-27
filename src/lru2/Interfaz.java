@@ -4,9 +4,8 @@ import java.util.Arrays;
 
 public class Interfaz extends javax.swing.JFrame {
     private int VRAM=0,RAM=0,Tpag=0;
-    private int NpagV,NInstrucciones;
-    private int TablaDeInstrucciones[];
-    private int TablaDeEjecucion[];
+    private int NpagV,NInstrucciones, cont=0;
+    private int TablaDeInstrucciones[], TManual[], TablaDeEjecucion[];
     private Generador_de_Instrucciones GEN = new Generador_de_Instrucciones();
     Algoritmo_LRU2 Ejecucion = new Algoritmo_LRU2();
     MMU MMu = new MMU();
@@ -623,9 +622,8 @@ public class Interfaz extends javax.swing.JFrame {
         jButton8.setEnabled(true);
         jButton8.setVisible(true);
         jTextField9.setVisible(true);
-        Generador_de_Instrucciones manual = new Generador_de_Instrucciones();
-        Integer man = Integer.parseInt(jTextField9.getText());
-        manual.manual(man);
+        TManual = new int[GEN.mpag];
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -642,7 +640,10 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        Integer man = Integer.parseInt(jTextField9.getText());
+        TManual = GEN.manual(TManual, man , cont);
+        cont++;
+        System.out.println(Arrays.toString(TManual));
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
