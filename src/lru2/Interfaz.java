@@ -527,9 +527,8 @@ public class Interfaz extends javax.swing.JFrame {
         jButton5.setVisible(true);
         jButton6.setVisible(true);
         jTextField9.setVisible(false);
-        Ejecucion.Inicializado(NpagV, NInstrucciones);
-        Ejecucion.TablaDeInstrucciones = TEX;
-        Ejecucion.Ninstrucciones = GEN.mpag;
+        System.out.print(GEN.pag+"    "+ GEN.mpag+"    ");
+        Ejecucion.Inicializado(GEN.pag, GEN.mpag);
         for(int i=0; i<TEX.length; i++){
             Ejecucion.Ejecucion(TEX[i]);
         }
@@ -611,9 +610,6 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField8.setVisible(true);
         NpagV=VRAM;
         NInstrucciones=RAM;
-        System.out.print(RAM);
-        System.out.print(VRAM);
-        System.out.print(Tpag);
         jTextField4.setText(String.valueOf(GEN.mpag));
         jTextField5.setText(String.valueOf(GEN.pag));
         jTextField8.setText("0 - "+String.valueOf(GEN.ed - 1));
@@ -634,9 +630,7 @@ public class Interfaz extends javax.swing.JFrame {
         jButton4.setEnabled(true);
         jButton4.setVisible(true);
         TablaDeInstrucciones = GEN.aleatorio();
-        System.out.print(Arrays.toString(TablaDeInstrucciones));
         TAleatoria = MMu.tabla_ale(TablaDeInstrucciones, TablaDeInstrucciones.length, GEN.tpg);
-        System.out.print(Arrays.toString(TAleatoria));
         jButton2.setEnabled(false);
         jButton3.setEnabled(false);
         TEX=TAleatoria;

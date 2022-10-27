@@ -49,7 +49,6 @@ public class Generador_de_Instrucciones extends Memoria{
         int TablaDir[] = new int [mpag];
         for(int i =0; i<mpag ; i++){
             TablaDir[i]= (int)(Math.random()*ed);
-            System.out.print(TablaDir[i]);
         }    
         return TablaDir;
     }
