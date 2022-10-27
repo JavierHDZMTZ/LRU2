@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Interfaz extends javax.swing.JFrame {
     private int VRAM=0,RAM=0,Tpag=0;
     private int NpagV,NInstrucciones, cont=0;
-    private int TablaDeInstrucciones[], TManual[], TablaDeEjecucion[];
+    private int TablaDeInstrucciones[], TManual[], TAleatoria[], TEX[];
     private Generador_de_Instrucciones GEN = new Generador_de_Instrucciones();
     Algoritmo_LRU2 Ejecucion = new Algoritmo_LRU2();
     MMU MMu = new MMU();
@@ -528,9 +528,10 @@ public class Interfaz extends javax.swing.JFrame {
         jButton6.setVisible(true);
         jTextField9.setVisible(false);
         Ejecucion.Inicializado(NpagV, NInstrucciones);
-        Ejecucion.TablaDeInstrucciones = TablaDeInstrucciones;
-        for(int i=0; i<NInstrucciones; i++){
-            Ejecucion.Ejecucion(TablaDeInstrucciones[i]);
+        Ejecucion.TablaDeInstrucciones = TEX;
+        Ejecucion.Ninstrucciones = GEN.mpag;
+        for(int i=0; i<TEX.length; i++){
+            Ejecucion.Ejecucion(TEX[i]);
         }
         Ejecucion.CalculoDeValores();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -608,6 +609,8 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField7.setVisible(true);
         jLabel8.setVisible(true);
         jTextField8.setVisible(true);
+        NpagV=VRAM;
+        NInstrucciones=RAM;
         System.out.print(RAM);
         System.out.print(VRAM);
         System.out.print(Tpag);
@@ -623,7 +626,8 @@ public class Interfaz extends javax.swing.JFrame {
         jButton8.setVisible(true);
         jTextField9.setVisible(true);
         TManual = new int[GEN.mpag];
-        
+        jButton3.setEnabled(false);
+        jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -631,8 +635,11 @@ public class Interfaz extends javax.swing.JFrame {
         jButton4.setVisible(true);
         TablaDeInstrucciones = GEN.aleatorio();
         System.out.print(Arrays.toString(TablaDeInstrucciones));
-        TablaDeEjecucion = MMu.tabla_ale(TablaDeInstrucciones, TablaDeInstrucciones.length, GEN.tpg);
-        System.out.print(Arrays.toString(TablaDeEjecucion));
+        TAleatoria = MMu.tabla_ale(TablaDeInstrucciones, TablaDeInstrucciones.length, GEN.tpg);
+        System.out.print(Arrays.toString(TAleatoria));
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        TEX=TAleatoria;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -644,15 +651,17 @@ public class Interfaz extends javax.swing.JFrame {
         TManual = GEN.manual(TManual, man , cont);
         cont++;
         System.out.println(Arrays.toString(TManual));
+        jTextField9.setText("");
+        if(cont>= GEN.mpag){
+            jButton4.setEnabled(true);
+            jButton4.setVisible(true);
+            TEX=TManual;
+            jButton8.setEnabled(false);
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        MMU manual = new MMU();
-        
-        Integer m = Integer.parseInt(jTextField9.getText());
-        
-        manual.tabla_man(m);
-        
+     
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     /**

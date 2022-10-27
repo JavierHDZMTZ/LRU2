@@ -1,21 +1,21 @@
 package lru2;
 import java.util.Arrays;
 public class Algoritmo_LRU2 {
-    private static int Matriz[][];
+    private long Matriz[][];
     public int TablaDeInstrucciones [], Ninstrucciones, NPagV;
     private int ValorDeFila[][];
     
     public void Inicializado(int NPagV, int Nins){
        Ninstrucciones= Nins;
        this.NPagV = NPagV;
-       Matriz = new int[NPagV][NPagV];
+       Matriz = new long[NPagV][NPagV];
        Rellenar_Matriz(NPagV);
        TablaDeInstrucciones = new int[Nins];
        ValorDeFila= new int[Nins][2];
     }
     private void Rellenar_Matriz(int NPagV){
         for(int i=0 ; i<NPagV; i++){
-            for(int j=0 ; j<NPagV ; i++){
+            for(int j=0 ; j<NPagV ; j++){
                 Matriz[i][j]=0;
             }
         }
@@ -43,10 +43,17 @@ public class Algoritmo_LRU2 {
     }
     private int Calculo (int fila){
         int valor = 0;
+        int divi=1;
+        for(int i = 0; i<NPagV ; i++){
+            if(i>0){
+                divi = divi * 2;
+            }
+        }
         for(int k = 0; k < NPagV; k++){
             if(Matriz[fila][k] == 1){
-                valor = valor + (2^(NPagV-k));
+                valor = valor + (divi);
             }
+            divi=divi/2;
         }
         return valor;
     }
@@ -67,6 +74,7 @@ public class Algoritmo_LRU2 {
     }
     public void Ejecucion(int NPagVirtual){
         Rellenar_FilasYColumnas(NPagVirtual);
+        System.out.println(Arrays.toString(Matriz));
     }
     
 }
